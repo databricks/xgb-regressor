@@ -5,11 +5,11 @@ entry_points:
     parameters:
       training_data: path
       test_data: path
-      label_col: string
+      label: string
       ntrees:
         type: int
         default: 200
       lr:
         type: float
         default: 0.005
-    command: python main.py --training_data {training_data} --test_data {test_data} --label_col {label_col} --ntrees {ntrees} --lr {lr}
+    command: python main.py --training_data {training_data} --test_data {test_data} --label {label} --ntrees {ntrees} --lr {lr}

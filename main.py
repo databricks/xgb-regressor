@@ -18,16 +18,16 @@ def eval_metrics(actual, pred):
 @click.command()
 @click.option("--training_data")
 @click.option("--test_data")
-@click.option("--label_col")
+@click.option("--label")
 @click.option("--ntrees", default=200)
 @click.option("--lr", default=0.005)
-def main(training_data, test_data, label_col, ntrees, lr):
+def main(training_data, test_data, label, ntrees, lr):
     trainDF = pd.read_parquet(training_data)
     testDF = pd.read_parquet(test_data)
-    yTrain = trainDF[[label_col]]
-    XTrain = trainDF.drop([label_col], axis=1)
-    yTest = testDF[[label_col]]
-    XTest = testDF.drop([label_col], axis=1)
+    yTrain = trainDF[[label]]
+    XTrain = trainDF.drop([label], axis=1)
+    yTest = testDF[[label]]
+    XTest = testDF.drop([label], axis=1)
     
     print("Running XGBoost regressor")
     mlflow.log_parameter("ntrees", ntrees)
