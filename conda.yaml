@@ -2,4 +2,4 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - xgboost
+  - xgboost=0.72
