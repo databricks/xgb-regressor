@@ -52,7 +52,6 @@ def main(training_data, test_data, label_col, max_depth, n_trees, learning_rate)
     print("  MAE: %s" % mae)
     print("  R2: %s" % r2)
     
-    mlflow.log_parameter("model", "XGBRegressor")
     mlflow.log_parameter("max_depth", max_depth)
     mlflow.log_parameter("n_trees", n_trees)
     mlflow.log_parameter("learning_rate", learning_rate)
