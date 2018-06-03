@@ -19,9 +19,9 @@ def eval_metrics(actual, pred):
 @click.option("--training_data")
 @click.option("--test_data")
 @click.option("--label_col")
-@click.option("--trees", default=200)
-@click.option("--learning_rate", default=0.005)
-def main(training_data, test_data, label_col, trees, learning_rate):
+@click.option("--ntrees", default=200)
+@click.option("--lr", default=0.005)
+def main(training_data, test_data, label_col, ntrees, lr):
     trainDF = pd.read_parquet(training_data)
     testDF = pd.read_parquet(test_data)
     yTrain = trainDF[[label_col]]
@@ -30,12 +30,12 @@ def main(training_data, test_data, label_col, trees, learning_rate):
     XTest = testDF.drop([label_col], axis=1)
     
     print("Running XGBoost regressor")
-    mlflow.log_parameter("trees", trees)
-    mlflow.log_parameter("learning_rate", learning_rate)
+    mlflow.log_parameter("ntrees", ntrees)
+    mlflow.log_parameter("lr", lr)
 
     xgbRegressor = xgb.XGBRegressor(
-        n_estimators=trees,
-        learning_rate=learning_rate,
+        n_estimators=ntrees,
+        learning_rate=lr,
         random_state=42,
         seed=42,
         subsample=0.75,
