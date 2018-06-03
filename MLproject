@@ -1,0 +1,9 @@
+conda_env: conda.yml
+
+entry_points:
+  main:
+    command: python main.py --training_data {training_data} --test_data {test_data} --label_col {label_col}
+    parameters:
+      training_data: path
+      test_data: path
+      label_col: string
