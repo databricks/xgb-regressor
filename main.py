@@ -21,7 +21,7 @@ def eval_metrics(actual, pred):
 @click.option("--label_col")
 @click.option("--trees", default=200)
 @click.option("--learning_rate", default=0.005)
-def main(training_data, test_data, label_col, max_depth, trees, learning_rate):
+def main(training_data, test_data, label_col, trees, learning_rate):
     trainDF = pd.read_parquet(training_data)
     testDF = pd.read_parquet(test_data)
     yTrain = trainDF[[label_col]]
