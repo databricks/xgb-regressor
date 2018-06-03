@@ -2,8 +2,14 @@ conda_env: conda.yaml
 
 entry_points:
   main:
-    command: python main.py --training_data {training_data} --test_data {test_data} --label_col {label_col}
     parameters:
       training_data: path
       test_data: path
       label_col: string
+      trees:
+        type: int
+        default: 200
+      learning_rate:
+        type: float
+        default: 0.005
+    command: python main.py --training_data {training_data} --test_data {test_data} --label_col {label_col} --trees {trees} --learning_rate {learning_rate}
