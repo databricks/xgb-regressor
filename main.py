@@ -20,9 +20,9 @@ def eval_metrics(actual, pred):
 @click.option("--test_data")
 @click.option("--label_col")
 @click.option("--max_depth", default=7)
-@click.option("--n_trees", default=200)
+@click.option("--ntrees", default=200)
 @click.option("--learning_rate", default=0.005)
-def main(training_data, test_data, label_col, max_depth, n_trees, learning_rate):
+def main(training_data, test_data, label_col, max_depth, ntrees, learning_rate):
     trainDF = pd.read_parquet(training_data)
     testDF = pd.read_parquet(test_data)
     yTrain = trainDF[[label_col]]
@@ -32,7 +32,7 @@ def main(training_data, test_data, label_col, max_depth, n_trees, learning_rate)
 
     xgbRegressor = xgb.XGBRegressor(
         max_depth=max_depth,
-        n_estimators=n_trees,
+        n_estimators=ntrees,
         learning_rate=learning_rate,
         random_state=42,
         seed=42,
@@ -54,7 +54,7 @@ def main(training_data, test_data, label_col, max_depth, n_trees, learning_rate)
     
     mlflow.log_param("model", "XGBRegressor")
     mlflow.log_param("max_depth", max_depth)
-    mlflow.log_param("n_trees", n_trees)
+    mlflow.log_param("ntrees", ntrees)
     mlflow.log_param("learning_rate", learning_rate)
     mlflow.log_metric("rmse", rmse)
     mlflow.log_metric("r2", r2)
