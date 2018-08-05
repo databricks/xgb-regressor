@@ -9,7 +9,7 @@ entry_points:
       ntrees:
         type: int
         default: 200
-      lr:
+      learning_rate:
         type: float
         default: 0.005
-    command: python main.py --training_data {training_data} --test_data {test_data} --label_col {label_col} --ntrees {ntrees} --lr {lr}
+    command: python main.py --training_data {training_data} --test_data {test_data} --label_col {label_col} --ntrees {ntrees} --learning_rate {learning_rate}
