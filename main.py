@@ -47,7 +47,7 @@ def main(training_data, test_data, label_col, max_depth, ntrees, learning_rate):
     
     (rmse, mae, r2) = eval_metrics(yTest, yPred)
     
-    print("XGBoost tree model (max_depth=%f, trees=%f, lr=%f):" % (max_depth, n_trees, learning_rate))
+    print("XGBoost tree model (max_depth=%f, trees=%f, lr=%f):" % (max_depth, ntrees, learning_rate))
     print("  RMSE: %s" % rmse)
     print("  MAE: %s" % mae)
     print("  R2: %s" % r2)
