@@ -56,9 +56,9 @@ def main(training_data, test_data, label_col, max_depth, ntrees, learning_rate):
     mlflow.log_param("max_depth", max_depth)
     mlflow.log_param("ntrees", ntrees)
     mlflow.log_param("learning_rate", learning_rate)
-    mlflow.log_metric("rmse", rmse)
-    mlflow.log_metric("r2", r2)
-    mlflow.log_metric("mae", mae)
+    mlflow.log_metric("RMSE", rmse)
+    mlflow.log_metric("R2", r2)
+    mlflow.log_metric("MAE", mae)
     
     mlflow.sklearn.log_model(pipeline, "model")
     #print("Model saved in run %s" % mlflow.active_run_id())
