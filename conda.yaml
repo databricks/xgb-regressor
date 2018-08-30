@@ -5,5 +5,6 @@ dependencies:
   - python==2.7.13
   - scikit-learn==0.19.1
   - xgboost==0.71
+  - pyarrow
   - pip:
     - mlflow
