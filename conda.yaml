@@ -4,7 +4,7 @@ channels:
 dependencies:
   - python==3.5.2
   - scikit-learn==0.19.1
-  - xgboost==0.81
+  - xgboost==0.71
   - pyarrow
   - pip:
     - mlflow
